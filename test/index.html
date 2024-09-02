@@ -1,1 +1,29 @@
-<h1>Testing path...</h1>
+<html lang="en">
+<head>
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id" content="957230963499-93a6tlck1igf8nl5kc58e7ccdeteha7q.apps.googleusercontent.com">
+  <title>My Web app</title>
+  <script type="application/javascript" src="https://apis.google.com/js/platform.js" async defer></script>
+</head>
+<body>
+  <div id="g_id_onload"
+       data-client_id="957230963499-93a6tlck1igf8nl5kc58e7ccdeteha7q.apps.googleusercontent.com"
+       data-login_uri="https://felipeandres254.github.io/test"
+       data-auto_prompt="false">
+  </div>
+  <div class="g_id_signin"
+       data-type="standard"
+       data-size="large"
+       data-theme="outline"
+       data-text="sign_in_with"
+       data-shape="rectangular"
+       data-callback="onSignIn"
+       data-logo_alignment="left">
+  </div>
+  <script type="application/javascript">
+    function onSignIn() {
+      alert('success');
+    }
+  </script>
+</body>
+</html>
