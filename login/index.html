@@ -1,13 +1,12 @@
 <html lang="en">
 <head>
   <title>App</title>
+  <script type="application/javascript" src="https://accounts.google.com/gsi/client"></script>
+  <script type="application/javascript" src="https://apis.google.com/js/api.js"></script>
 </head>
 <body>
   <button id="btn-login">Authorize me</button>
   <script type="application/javascript">
-    function onLoad() {
-      console.log('GSI is loaded!')
-    }
     document.addEventListener('DOMContentLoaded', () => {
       function onLogin(response) {
         console.log(response)
@@ -22,6 +21,5 @@
         client.requestAccessToken() })
     })
   </script>
-  <script type="application/javascript" src="https://accounts.google.com/gsi/client" onload="onLoad"></script>
 </body>
 </html>
