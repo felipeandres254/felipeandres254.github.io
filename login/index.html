@@ -4,14 +4,24 @@
   <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
+  <--
   <div id="g_id_onload"
        data-client_id="169826553548-c1o8b8sh7f25qlv1qt026kieucus8r72.apps.googleusercontent.com"
        data-callback="onLogin">
   </div>
+  <div class="g_id_signin" data-type="standard"></div>
+  -->
+  <button onclick="client.requestAccessToken();">Authorize me</button>
   <script type="application/javascript">
     function onLogin(response) {
       console.log(response)
     }
+    const client = google.accounts.oauth2.initTokenClient({
+      client_id: '169826553548-c1o8b8sh7f25qlv1qt026kieucus8r72.apps.googleusercontent.com',
+      scope: 'https://www.googleapis.com/auth/drive \
+              https://www.googleapis.com/auth/spreadsheets',
+      callback: onLogin,
+    });
   </script>
 </body>
 </html>
