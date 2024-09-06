@@ -14,14 +14,20 @@
                 https://www.googleapis.com/auth/drive \
                 https://www.googleapis.com/auth/spreadsheets',
         callback: function(response) {
+          console.log('Authenticated!')
           gapi.load('client:script', function() {
+            console.log('Google API Client loaded!')
             gapi.client.setToken(response.access_token)
+            console.log('Running script...')
             gapi.client.script.scripts.run({
               scriptId: 'AKfycbxZRwM-SIMNN_vA_P2k1UxRV4iIWNum9CCigujzaZPg',
               resource: {
+                devMode: true,
                 function: '$router',
-                parameters: [{ path: '/users/1' }] } })
-            .then(function(response) { console.log(response) })
+                parameters: [{ path: '/users/1' }], } })
+            .then(function(response) {
+              console.log(response)
+            })
           })
         },
       })
