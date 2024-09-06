@@ -16,7 +16,7 @@
         callback: function(response) {
           console.log('Authenticated!')
           gapi.load('client', function() {
-            gapi.load('script', function() {
+            gapi.client.load('script', function() {
               console.log('Google API Client loaded!')
               gapi.client.setToken(response.access_token)
               console.log('Running script...')
