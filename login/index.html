@@ -15,7 +15,7 @@
                 https://www.googleapis.com/auth/spreadsheets',
         callback: function(response) {
           console.log('Authenticated!')
-          gapi.load('client:script', function() {
+          gapi.load('client', function() {
             console.log('Google API Client loaded!')
             gapi.client.setToken(response.access_token)
             console.log('Running script...')
