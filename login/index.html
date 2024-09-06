@@ -8,14 +8,22 @@
   <button id="btn-login">Authorize me</button>
   <script type="application/javascript">
     document.addEventListener('DOMContentLoaded', () => {
-      function onLogin(response) {
-        console.log(response)
-      }
       const client = google.accounts.oauth2.initTokenClient({
         client_id: '169826553548-c1o8b8sh7f25qlv1qt026kieucus8r72.apps.googleusercontent.com',
-        scope: 'https://www.googleapis.com/auth/drive \
+        scope: 'https://www.googleapis.com/auth/userinfo.email \
+                https://www.googleapis.com/auth/drive \
                 https://www.googleapis.com/auth/spreadsheets',
-        callback: onLogin,
+        callback: function(response) {
+          gapi.load('client:script', function() {
+            gapi.client.setToken(response.access_token)
+            gapi.client.script.scripts.run({
+              scriptId: 'AKfycbxZRwM-SIMNN_vA_P2k1UxRV4iIWNum9CCigujzaZPg',
+              resource: {
+                function: '$router',
+                parameters: [{ path: '/users/1' }] } })
+            .then(function(response) { console.log(response) })
+          })
+        },
       })
       document.querySelector('button#btn-login').addEventListener('click', () => {
         client.requestAccessToken() })
