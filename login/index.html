@@ -1,11 +1,14 @@
 <html lang="en">
 <head>
   <title>App</title>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://accounts.google.com/gsi/client" onload="onLoad"></script>
 </head>
 <body>
   <button id="btn-login">Authorize me</button>
   <script type="application/javascript">
+    function onLoad() {
+      console.log('GSI is loaded!')
+    }
     document.addEventListener('DOMContentLoaded', () => {
       function onLogin(response) {
         console.log(response)
