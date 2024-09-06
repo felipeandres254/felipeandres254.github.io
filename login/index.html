@@ -16,19 +16,18 @@
         callback: function(response) {
           console.log('Authenticated!')
           gapi.load('client', function() {
-            gapi.client.load('script', function() {
-              console.log('Google API Client loaded!')
-              gapi.client.setToken(response.access_token)
-              console.log('Running script...')
-              gapi.client.script.scripts.run({
-                scriptId: 'AKfycbxZRwM-SIMNN_vA_P2k1UxRV4iIWNum9CCigujzaZPg',
-                resource: {
-                  devMode: true,
-                  function: '$router',
-                  parameters: [{ path: '/users/1' }], } })
-              .then(function(response) {
-                console.log(response)
-              })
+            console.log('Google API Client loaded!')
+            gapi.client.setToken(response.access_token)
+            console.log('Running script...')
+            gapi.client.request({
+              method: 'POST',
+              path: '/v1/scripts/AKfycbxZRwM-SIMNN_vA_P2k1UxRV4iIWNum9CCigujzaZPg:run',
+              body: {
+                devMode: true,
+                function: '$router',
+                parameters: [{ path: '/users/@me' }], } })
+            .then(function(response) {
+              console.log(response)
             })
           })
         },
