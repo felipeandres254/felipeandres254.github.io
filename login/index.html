@@ -22,7 +22,7 @@
               parameters: [{ path: '/users/@me' }], }) })
           console.log(await result.json())
 
-          path = `/v1/people/me?personFields=clientData,externalIds,metadata,photos`
+          path = `/v1/people/me?personFields=photos`
           result = await fetch(`https://people.googleapis.com${path}`, {
             method: 'GET', headers: { Authorization: `Bearer ${response.access_token}` } })
           console.log(await result.json())
