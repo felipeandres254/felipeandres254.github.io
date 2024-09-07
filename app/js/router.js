@@ -1,5 +1,5 @@
 //
-import AsyncRenderer from './components/AsyncRenderer';
+import AsyncRenderer from './components/AsyncRenderer.js';
 
 const router = VueRouter.createRouter({
   history: VueRouter.createMemoryHistory(),
