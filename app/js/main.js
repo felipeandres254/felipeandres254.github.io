@@ -25,7 +25,7 @@ $axios.interceptors.request.use(async (config) => {
           resolve()
         },
         error_callback: (type) => { reject(type) },
-      })
+      }).requestAccessToken()
     })
   }
   config.headers.Authorization = `Bearer ${access_token.value}`
