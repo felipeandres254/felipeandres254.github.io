@@ -41,14 +41,10 @@ export default {
     }
   },
   render() {
-    console.log(this.$slots)
-    return ''
-    /**
-    this.$slots.default({
+    return this.$slots.default({
       loading: this.loading,
       error: this.error,
       data: this.data,
     })
-    /**/
   },
 }

@@ -1,10 +1,10 @@
 //
-import AsyncRenderer from './components/AsyncRenderer.js';
+import component from './components/AsyncRenderless.js';
 
 const router = VueRouter.createRouter({
   history: VueRouter.createMemoryHistory(),
   routes: [
-    { path: '/', component: AsyncRenderer },
+    { path: '/', component },
   ],
 })
 
