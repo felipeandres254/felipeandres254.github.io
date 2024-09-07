@@ -7,20 +7,25 @@
   <button id="btn-login">Authorize me</button>
   <script type="application/javascript">
     document.addEventListener('DOMContentLoaded', () => {
+      let path, result;
       const client = google.accounts.oauth2.initTokenClient({
         client_id: '169826553548-c1o8b8sh7f25qlv1qt026kieucus8r72.apps.googleusercontent.com',
-        scope: 'https://www.googleapis.com/auth/userinfo.email \
-                https://www.googleapis.com/auth/drive \
-                https://www.googleapis.com/auth/spreadsheets',
+        scope: 'https://www.googleapis.com/auth/userinfo.profile \
+                https://www.googleapis.com/auth/userinfo.email',
         callback: async function(response) {
-          const path = '/v1/scripts/AKfycbxZRwM-SIMNN_vA_P2k1UxRV4iIWNum9CCigujzaZPg:run'
-          const result = await fetch(`https://script.googleapis.com${path}`, {
+          path = '/v1/scripts/AKfycbxZRwM-SIMNN_vA_P2k1UxRV4iIWNum9CCigujzaZPg:run'
+          result = await fetch(`https://script.googleapis.com${path}`, {
             method: 'POST', headers: { Authorization: `Bearer ${response.access_token}` },
             body: JSON.stringify({
               devMode: true,
               function: '$router',
               parameters: [{ path: '/users/@me' }], }) })
-          console.log(await response.json())
+          console.log(await result.json())
+
+          path = `/v1/people/me?personFields=clientData,externalIds,metadata,photos`
+          result = await fetch(`https://people.googleapis.com${path}`, {
+            method: 'GET', headers: { Authorization: `Bearer ${response.access_token}` } })
+          console.log(await result.json())
         },
       })
       document.querySelector('button#btn-login').addEventListener('click', () => {
