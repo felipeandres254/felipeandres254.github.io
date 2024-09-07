@@ -1,7 +1,4 @@
 //
-const CLIENT_ID = '169826553548-c1o8b8sh7f25qlv1qt026kieucus8r72.apps.googleusercontent.com'
-const SCRIPT_ID = 'AKfycbxZRwM-SIMNN_vA_P2k1UxRV4iIWNum9CCigujzaZPg'
-
 export default {
   props: {
     path: { type: String, default: '/', required: true },
