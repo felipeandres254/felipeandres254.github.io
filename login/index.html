@@ -23,12 +23,12 @@
               devMode: true,
               function: '$api',
               parameters: [{ path: '/users/@me' }], }) })
-          document.querySelector('pre').innerHTML += JSON.stringify(await result.json, null, 4) + '\n\n'
+          document.querySelector('pre').innerHTML += JSON.stringify(await result.json(), null, 4) + '\n\n'
 
           path = `/v1/people/me?personFields=photos`
           result = await fetch(`https://people.googleapis.com${path}`, {
             method: 'GET', headers: { Authorization: `Bearer ${response.access_token}` } })
-          document.querySelector('pre').innerHTML += JSON.stringify(await result.json, null, 4) + '\n\n'
+          document.querySelector('pre').innerHTML += JSON.stringify(await result.json(), null, 4) + '\n\n'
         },
       })
       document.querySelector('button#btn-login').addEventListener('click', () => {
