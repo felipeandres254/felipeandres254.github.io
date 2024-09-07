@@ -40,8 +40,8 @@ export default {
       this.loading = false
     }
   },
-  render() {
-    return this.$slots.default({
+  setup(_, { slots }) {
+    slots.default({
       loading: this.loading,
       error: this.error,
       data: this.data,
