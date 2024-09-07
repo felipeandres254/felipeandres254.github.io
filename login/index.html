@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>App</title>
+  <script type="application/javascript" src="https://accounts.google.com/gsi/client"></script>
+</head>
+<body>
+  <button id="btn-login">Authorize me</button>
+  <script type="application/javascript">
+    document.addEventListener('DOMContentLoaded', () => {
+      let path, result;
+      const client = google.accounts.oauth2.initTokenClient({
+        client_id: '169826553548-c1o8b8sh7f25qlv1qt026kieucus8r72.apps.googleusercontent.com',
+        scope: 'https://www.googleapis.com/auth/userinfo.profile \
+                https://www.googleapis.com/auth/userinfo.email',
+        callback: async function(response) {
+          document.write('<pre></pre>')
+
+          path = '/v1/scripts/AKfycbxZRwM-SIMNN_vA_P2k1UxRV4iIWNum9CCigujzaZPg:run'
+          result = await fetch(`https://script.googleapis.com${path}`, {
+            method: 'POST', headers: { Authorization: `Bearer ${response.access_token}` },
+            body: JSON.stringify({
+              devMode: true,
+              function: '$api',
+              parameters: [{ path: '/users/@me' }], }) })
+          document.querySelector('pre').innerHTML += JSON.stringify(await result.json, null, 4) + '\n\n'
+
+          path = `/v1/people/me?personFields=photos`
+          result = await fetch(`https://people.googleapis.com${path}`, {
+            method: 'GET', headers: { Authorization: `Bearer ${response.access_token}` } })
+          document.querySelector('pre').innerHTML += JSON.stringify(await result.json, null, 4) + '\n\n'
+        },
+      })
+      document.querySelector('button#btn-login').addEventListener('click', () => {
+        client.requestAccessToken() })
+    })
+  </script>
+</body>
+</html>
