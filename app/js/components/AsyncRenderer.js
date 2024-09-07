@@ -41,7 +41,7 @@ export default {
     }
   },
   render() {
-    return this.$scopedSlots.default({
+    return this.$slots.default({
       loading: this.loading,
       error: this.error,
       data: this.data,
