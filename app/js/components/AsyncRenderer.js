@@ -1,7 +1,7 @@
 //
 export default {
   props: {
-    path: { type: String, default: '/', required: true },
+    path: { type: String, default: '/' },
     params: { type: Object, default: () => ({}) }
   },
   data() {
@@ -46,5 +46,5 @@ export default {
       error: this.error,
       data: this.data,
     })
-  }
+  },
 }
