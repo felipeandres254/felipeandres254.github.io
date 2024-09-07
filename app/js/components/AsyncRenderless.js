@@ -40,11 +40,10 @@ export default {
       this.loading = false
     }
   },
-  setup(_, { slots }) {
-    slots.default({
-      loading: this.loading,
-      error: this.error,
-      data: this.data,
-    })
+  render() {
+    return this.slots.default?.({
+      loading: this.loading || true,
+      error: this.error || null,
+      data: this.data || null, })
   },
 }
