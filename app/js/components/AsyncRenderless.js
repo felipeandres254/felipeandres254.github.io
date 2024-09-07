@@ -8,7 +8,7 @@ export default {
     return {
       loading: true,
       error: null,
-      data: null,
+      body: null,
     }
   },
   watch: {
@@ -32,18 +32,21 @@ export default {
             function: '$view',
             parameters: [{ path, params }], } })
         this.error = null
-        this.data = data
+        this.body = data
       } catch (error) {
         this.error = error
-        this.data = null
+        this.body = null
       }
       this.loading = false
     }
+  },
+  mounted() {
+    this.request()
   },
   render() {
     return this.slots?.default({
       loading: this.loading || true,
       error: this.error || null,
-      data: this.data || null, })
+      body: this.body || null, })
   },
 }
