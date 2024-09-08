@@ -16,11 +16,10 @@
         callback: async function(response) {
           document.write('<pre></pre>')
 
-          path = '/v1/scripts/AKfycbzRk586cjJIvVFWtABcyoi1zKBaNiut8J-NZk6nIss1q621vfET3JMwI9nMWkykLvtAdQ:run'
+          path = '/v1/scripts/AKfycbw9VIBORb5c6pO_Nz3rCQvAOnhwJsmmKwbFsIJZ_ghSRjjNCmCTicSEg-pQl4VFTDZC:run'
           result = await fetch(`https://script.googleapis.com${path}`, {
             method: 'POST', headers: { Authorization: `Bearer ${response.access_token}` },
             body: JSON.stringify({
-              devMode: true,
               function: '$api',
               parameters: [{ path: '/users/@me' }], }) })
           document.querySelector('pre').innerHTML += JSON.stringify(await result.json(), null, 4) + '\n\n'
