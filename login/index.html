@@ -12,7 +12,9 @@
       const client = google.accounts.oauth2.initTokenClient({
         client_id: '169826553548-c1o8b8sh7f25qlv1qt026kieucus8r72.apps.googleusercontent.com',
         scope: 'https://www.googleapis.com/auth/userinfo.profile \
-                https://www.googleapis.com/auth/userinfo.email',
+                https://www.googleapis.com/auth/userinfo.email \
+                https://www.googleapis.com/auth/drive \
+                https://www.googleapis.com/auth/spreadsheets',
         callback: async function(response) {
           document.write('<pre></pre>')
 
