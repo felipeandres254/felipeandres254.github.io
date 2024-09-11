@@ -16,12 +16,18 @@
         callback: async function(response) {
           document.write('<pre></pre>')
 
-          path = '/v1/scripts/AKfycbw9VIBORb5c6pO_Nz3rCQvAOnhwJsmmKwbFsIJZ_ghSRjjNCmCTicSEg-pQl4VFTDZC:run'
-          result = await fetch(`https://script.googleapis.com${path}`, {
+          let scriptId = 'AKfycbzotrmQHDOuz9YLFcUwtHCdNvQvAxFH2Bvf7D0bceSCnO486cwibGiusx69WT7Cwi5g1A'
+          if (window.scriptId)
+            scriptId = window.scriptId
+          result = await fetch(`https://script.googleapis.com/v1/scripts/${scriptId}:run`, {
             method: 'POST', headers: { Authorization: `Bearer ${response.access_token}` },
             body: JSON.stringify({
+              ...(window.devMode && { devMode: true }),
               function: '$api',
-              parameters: [{ path: '/users/@me' }], }) })
+              parameters: [{
+                method: 'GET',
+                path: '/users/@me',
+                headers: { Authorization: `Bearer ${response.access_token}` } }], }) })
           document.querySelector('pre').innerHTML += JSON.stringify(await result.json(), null, 4) + '\n\n'
 
           path = `/v1/people/me?personFields=photos`
