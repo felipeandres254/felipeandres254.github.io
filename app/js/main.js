@@ -5,10 +5,8 @@ import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstati
 const API_URL = 'https://app-74ijiatkua-uc.a.run.app'
 const app = initializeApp({
   projectId: 'app-514b35c713e28fcb31fc',
+  authDomain: 'app-514b35c713e28fcb31fc.firebaseapp.com',
   apiKey: 'AIzaSyBmrvd67uft_jBntHOvhij49NAudCxxcAI',
-  // appId: "APP_ID",
-  // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
-  // measurementId: "G-MEASUREMENT_ID",
 })
 
 document.addEventListener('DOMContentLoaded', async () => {
