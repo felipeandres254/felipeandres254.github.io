@@ -1,11 +1,4 @@
----
----
-@import "{{ site.theme }}";
-
-header {
-  display: none;
-}
-
+<div id="app"></div>
 <script type="application/javascript">
 document.addEventListener('DOMContentLoaded', function() {
   alert('Loaded!')
