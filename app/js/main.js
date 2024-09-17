@@ -3,7 +3,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/fireba
 import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js'
 
 const API_URL = 'https://app-74ijiatkua-uc.a.run.app'
-const app = initializeApp({
+initializeApp({
   projectId: 'app-514b35c713e28fcb31fc',
   authDomain: 'app-514b35c713e28fcb31fc.firebaseapp.com',
   apiKey: 'AIzaSyBmrvd67uft_jBntHOvhij49NAudCxxcAI',
@@ -34,12 +34,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 if (!access_token)
   await login()
 
-const app = { id: window.location.search.split('?')[1] }
-app.response = await fetch({
-  url: `${API_URL}?${app.id}`,
+const $app = { id: window.location.search.split('?')[1] }
+$app.response = await fetch({
+  url: `${API_URL}?${$app.id}`,
   headers: { Authorization: `Bearer ${access_token}` }
 })
-app.content = await app.response.text()
-console.log(app)
+$app.content = await $app.response.text()
+console.log($app)
 
 })
