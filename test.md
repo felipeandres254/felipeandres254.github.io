@@ -1,9 +1,13 @@
-# Test
+---
+---
+@import "{{ site.theme }}";
 
-This is just a testing page.
+header {
+  display: none;
+}
 
 <script type="application/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
-    alert('Loaded!')
-  })
+document.addEventListener('DOMContentLoaded', function() {
+  alert('Loaded!')
+})
 </script>
