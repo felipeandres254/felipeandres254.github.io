@@ -11,7 +11,7 @@
     apiKey: 'AIzaSyBmrvd67uft_jBntHOvhij49NAudCxxcAI',
   })
 
-  let [access_token, expired_at] = localStorage.getItem('access_token').split(',')
+  let [expired_at, access_token] = localStorage.getItem('access_token').split(',')
   expired_at = parseInt(expired_at) || 0
 
   function login() {
@@ -23,7 +23,7 @@
         .then((result) => {
           expired_at = 1000*JSON.parse(atob(result.user.accessToken.split('.')[1])).exp
           access_token = result.user.accessToken
-          localStorage.setItem('access_token', `${result.user.accessToken},${expired_at}`)
+          localStorage.setItem('access_token', `${expired_at},${result.user.accessToken}`)
           resolve(true)
         })
         .catch((error) => {
