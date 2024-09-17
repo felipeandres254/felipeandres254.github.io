@@ -35,10 +35,8 @@ if (!access_token)
   await login()
 
 const $app = { id: window.location.search.split('?')[1] }
-$app.response = await fetch({
-  url: `${API_URL}?${$app.id}`,
-  headers: { Authorization: `Bearer ${access_token}` }
-})
+$app.response = await fetch(`${API_URL}?${$app.id}`, {
+  headers: { Authorization: `Bearer ${access_token}` } })
 $app.content = await $app.response.text()
 console.log($app)
 
