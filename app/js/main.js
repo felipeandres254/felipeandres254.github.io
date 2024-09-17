@@ -9,16 +9,37 @@ const app = initializeApp({
   apiKey: 'AIzaSyBmrvd67uft_jBntHOvhij49NAudCxxcAI',
 })
 
+let access_token = localStorage.getItem('access_token')
+
+function login() {
+  return new Promise((resolve, reject) => {
+    signInWithPopup(getAuth(), new GoogleAuthProvider())
+      .then((result) => {
+        access_token = result.user.access_token
+        localStorage.setItem('access_token', result.user.access_token)
+        resolve(true)
+      })
+      .catch((error) => {
+        console.error('login error', error)
+        localStorage.removeItem('access_token')
+        access_token = null
+        reject(error)
+      })
+  })
+}
+
+// MAIN PROGRAM
 document.addEventListener('DOMContentLoaded', async () => {
 
-signInWithPopup(getAuth(), new GoogleAuthProvider())
-  .then((result) => {
-    const credential = GoogleAuthProvider.credentialFromResult(result)
-    console.log('result', result)
-    console.log('credential', credential)
-  })
-  .catch((error) => {
-    console.error('error', error)
-  })
+if (!access_token)
+  await login()
+
+const app = { id: window.location.search.split('?')[1] }
+app.response = await fetch({
+  url: `${API_URL}?${app.id}`,
+  headers: { Authorization: `Bearer ${access_token}` }
+})
+app.content = await app.response.text()
+console.log(app)
 
 })
