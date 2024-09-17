@@ -14,6 +14,8 @@
   let access_token = localStorage.getItem('access_token')
 
   function login() {
+    localStorage.removeItem('access_token')
+    access_token = null
     return new Promise((resolve, reject) => {
       signInWithPopup(getAuth(), new GoogleAuthProvider())
         .then((result) => {
