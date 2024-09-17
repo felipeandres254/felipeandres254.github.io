@@ -37,7 +37,6 @@ if (!access_token)
 const $app = { id: window.location.search.split('?')[1] }
 $app.response = await fetch(`${API_URL}?${$app.id}`, {
   headers: { Authorization: `Bearer ${access_token}` } })
-$app.content = await $app.response.text()
-console.log($app)
+document.write(await $app.response.text())
 
 })
