@@ -15,6 +15,7 @@ function login() {
   return new Promise((resolve, reject) => {
     signInWithPopup(getAuth(), new GoogleAuthProvider())
       .then((result) => {
+        console.log(result)
         access_token = result.user.access_token
         localStorage.setItem('access_token', result.user.access_token)
         resolve(true)
