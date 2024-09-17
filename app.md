@@ -52,9 +52,10 @@
       headers: { Authorization: `Bearer ${access_token}` } })
     document.querySelector('#app').innerHTML = await $app.content.text()
     const script = document.createElement('script')
+    script.setAttribute('type', 'application/javascript')
     $app.script = await fetch(`${API_URL}?${$app.id}&path=script.js`, {
       headers: { Authorization: `Bearer ${access_token}` } })
-    script.innerHTML = await $app.script.text()
+    script.text = await $app.script.text()
     document.body.appendChild(script)
   }, { once: true })
 </script>
