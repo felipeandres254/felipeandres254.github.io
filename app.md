@@ -11,22 +11,26 @@
     apiKey: 'AIzaSyBmrvd67uft_jBntHOvhij49NAudCxxcAI',
   })
 
-  let access_token = localStorage.getItem('access_token')
+  let [access_token, expired_at] = localStorage.getItem('access_token').split(',')
+  expired_at = parseInt(expired_at) || 0
 
   function login() {
     localStorage.removeItem('access_token')
     access_token = null
+    expired_at = -1
     return new Promise((resolve, reject) => {
       signInWithPopup(getAuth(), new GoogleAuthProvider())
         .then((result) => {
+          expired_at = 1000*JSON.parse(atob(result.user.accessToken.split('.')[1])).exp
           access_token = result.user.accessToken
-          localStorage.setItem('access_token', result.user.accessToken)
+          localStorage.setItem('access_token', `${result.user.accessToken},${expired_at}`)
           resolve(true)
         })
         .catch((error) => {
           console.error('login error', error)
           localStorage.removeItem('access_token')
           access_token = null
+          expired_at = -1
           reject(error)
         })
     })
@@ -34,7 +38,7 @@
 
   // MAIN PROGRAM
   document.addEventListener('DOMContentLoaded', async () => {
-    if (!access_token)
+    if (!access_token || Date.now() > expired_at)
       await login()
     try {
       await fetch(API_URL, {
