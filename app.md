@@ -11,7 +11,7 @@
     apiKey: 'AIzaSyBmrvd67uft_jBntHOvhij49NAudCxxcAI',
   })
 
-  let [expired_at, access_token] = localStorage.getItem('access_token').split(',')
+  let [expired_at, access_token] = (localStorage.getItem('access_token') || '0,').split(',')
   expired_at = parseInt(expired_at) || 0
 
   function login() {
