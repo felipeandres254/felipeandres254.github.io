@@ -15,9 +15,8 @@ function login() {
   return new Promise((resolve, reject) => {
     signInWithPopup(getAuth(), new GoogleAuthProvider())
       .then((result) => {
-        console.log(result)
-        access_token = result.user.access_token
-        localStorage.setItem('access_token', result.user.access_token)
+        access_token = result.user.accessToken
+        localStorage.setItem('access_token', result.user.accessToken)
         resolve(true)
       })
       .catch((error) => {
