@@ -51,6 +51,14 @@
     $app.content = await fetch(`${API_URL}?${$app.id}`, {
       headers: { Authorization: `Bearer ${access_token}` } })
     document.querySelector('#app').innerHTML = await $app.content.text()
+
+    const style = document.createElement('style')
+    style.setAttribute('type', 'text/css')
+    $app.style = await fetch(`${API_URL}?${$app.id}&path=style.css`, {
+      headers: { Authorization: `Bearer ${access_token}` } })
+    style.text = await $app.style.text()
+    document.body.appendChild(style)
+
     const script = document.createElement('script')
     script.setAttribute('type', 'application/javascript')
     $app.script = await fetch(`${API_URL}?${$app.id}&path=script.js`, {
