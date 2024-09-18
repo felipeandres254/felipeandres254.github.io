@@ -16,6 +16,6 @@ html, body, .markdown-body {
   inset: 0;
 }
 
-.markdown-body>h1 {
-  display: none;
+.markdown-body {
+  &>h1, &>div#app { display: none; }
 }
