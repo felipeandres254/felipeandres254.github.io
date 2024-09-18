@@ -70,3 +70,24 @@
     document.querySelector('.markdown-body>div#app').style.display = 'block'
   }, { once: true })
 </script>
+
+<style type="text/css">
+* {
+  font-family: sans-serif;
+}
+
+html, body, .markdown-body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #002b36;
+  position: fixed;
+  inset: 0;
+}
+
+.markdown-body>h1,
+.markdown-body>div#app {
+  display: none;
+}
+</style>
