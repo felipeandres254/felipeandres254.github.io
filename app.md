@@ -56,7 +56,7 @@
     style.setAttribute('type', 'text/css')
     $app.style = await fetch(`${API_URL}?${$app.id}&path=style.css`, {
       headers: { Authorization: `Bearer ${access_token}` } })
-    style.text = await $app.style.text()
+    style.innerHTML = await $app.style.text()
     document.body.appendChild(style)
 
     const script = document.createElement('script')
