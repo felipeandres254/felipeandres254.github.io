@@ -61,11 +61,12 @@
 
     const script = document.createElement('script')
     script.setAttribute('type', 'application/javascript')
-    script.onload = function() {
-      document.querySelector('.markdown-body>div#app').style.display = 'block' }
     $app.script = await fetch(`${API_URL}?${$app.id}&path=script.js`, {
       headers: { Authorization: `Bearer ${access_token}` } })
     script.text = await $app.script.text()
     document.body.appendChild(script)
+
+    // Show #app
+    document.querySelector('.markdown-body>div#app').style.display = 'block'
   }, { once: true })
 </script>
