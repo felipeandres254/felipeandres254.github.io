@@ -1,4 +1,7 @@
 <div id="app"></div>
+<div id="overlay-loading">
+  <img src="images/loading.svg">
+</div>
 
 <script type="module">
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js'
@@ -71,6 +74,7 @@
 
     // Show #app
     document.querySelector('.markdown-body>div#app').style.display = 'block'
+    document.querySelector('.markdown-body>div#overlay-loading').style.display = 'none'
   }, { once: true })
 </script>
 
