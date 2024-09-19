@@ -41,7 +41,7 @@
     if (!access_token || Date.now() > expired_at)
       await login()
     try {
-      await fetch(API_URL, {
+      await fetch(`${API_URL}/users/@me`, {
         headers: { Authorization: `Bearer ${access_token}` } })
     } catch {
       await login()
