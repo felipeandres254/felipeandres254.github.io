@@ -73,7 +73,6 @@
     document.body.appendChild(script)
 
     // Show #app
-    console.clear()
     document.querySelector('.markdown-body>div#app').style.display = 'block'
   }, { once: true })
 </script>
