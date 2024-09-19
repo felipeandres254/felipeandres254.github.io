@@ -83,7 +83,10 @@
   font-family: sans-serif;
 }
 
-html, body, .markdown-body {
+html,
+body,
+.markdown-body,
+.markdown-body > div#overlay-loading {
   width: 100vw;
   height: 100vh;
   margin: 0 !important;
@@ -93,8 +96,17 @@ html, body, .markdown-body {
   inset: 0;
 }
 
-.markdown-body>h1,
-.markdown-body>div#app {
+.markdown-body > h1,
+.markdown-body > div#app {
   display: none;
+}
+
+.markdown-body > div#overlay-loading img {
+  width: 125px;
+  background: transparent;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 </style>
