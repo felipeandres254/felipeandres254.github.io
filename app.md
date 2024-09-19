@@ -4,7 +4,10 @@
   import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js'
   import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js'
 
-  const API_URL = 'https://app-74ijiatkua-uc.a.run.app'
+  window.env = {}
+  window.env.API_URL = 'https://app-74ijiatkua-uc.a.run.app'
+  window.env.access_token = () => (localStorage.getItem('access_token') || '0,').split(',')[1]
+
   initializeApp({
     projectId: 'app-514b35c713e28fcb31fc',
     authDomain: 'app-514b35c713e28fcb31fc.firebaseapp.com',
@@ -41,27 +44,27 @@
     if (!access_token || Date.now() > expired_at)
       await login()
     try {
-      await fetch(`${API_URL}/users/@me`, {
+      await fetch(`${window.env.API_URL}/users/@me`, {
         headers: { Authorization: `Bearer ${access_token}` } })
     } catch {
       await login()
     }
 
-    const $app = { id: window.location.search.split('?')[1] }
-    $app.content = await fetch(`${API_URL}?${$app.id}`, {
+    const $app = { id: (window.location.search.split('?')[1] || 'index') }
+    $app.content = await fetch(`${window.env.API_URL}?${$app.id}`, {
       headers: { Authorization: `Bearer ${access_token}` } })
     document.querySelector('#app').innerHTML = await $app.content.text()
 
     const style = document.createElement('style')
     style.setAttribute('type', 'text/css')
-    $app.style = await fetch(`${API_URL}?${$app.id}&path=style.css`, {
+    $app.style = await fetch(`${window.env.API_URL}?${$app.id}&path=style.css`, {
       headers: { Authorization: `Bearer ${access_token}` } })
     style.innerHTML = await $app.style.text()
     document.body.appendChild(style)
 
     const script = document.createElement('script')
     script.setAttribute('type', 'application/javascript')
-    $app.script = await fetch(`${API_URL}?${$app.id}&path=script.js`, {
+    $app.script = await fetch(`${window.env.API_URL}?${$app.id}&path=script.js`, {
       headers: { Authorization: `Bearer ${access_token}` } })
     script.text = await $app.script.text()
     document.body.appendChild(script)
