@@ -73,8 +73,8 @@
     document.body.appendChild(script)
 
     // Show #app
+    console.clear()
     document.querySelector('.markdown-body>div#app').style.display = 'block'
-    document.querySelector('.markdown-body>div#overlay-loading').style.display = 'none'
   }, { once: true })
 </script>
 
