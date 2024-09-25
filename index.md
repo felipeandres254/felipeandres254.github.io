@@ -1,4 +1,6 @@
-# Andrés Felipe Torres
+---
+title: Andrés Felipe Torres
+---
 
 <div id="overlay-loading">
   <img src="assets/images/loading.svg">

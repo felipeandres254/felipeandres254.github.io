@@ -1,4 +1,6 @@
-# App
+---
+title: App
+---
 
 <div id="app"></div>
 <div id="overlay-loading">
