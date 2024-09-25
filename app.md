@@ -45,7 +45,7 @@ title: App
 
   // MAIN PROGRAM
   document.addEventListener('DOMContentLoaded', async () => {
-    if (!window.env.access_token() || Date.now() > expired_at)
+    if (!window.env.access_token() || Date.now() > window.env.access_token.expires_at())
       await window.env.login()
     try {
       await fetch(`${window.env.API_URL}/users/@me`, {
