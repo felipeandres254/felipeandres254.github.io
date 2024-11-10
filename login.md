@@ -2,6 +2,7 @@
 title: Login
 ---
 
+<script src="https://accounts.google.com/gsi/client" async></script>
 <div id="g_id_onload"
   data-client_id="169826553548-c1o8b8sh7f25qlv1qt026kieucus8r72.apps.googleusercontent.com"
   data-context="use"
