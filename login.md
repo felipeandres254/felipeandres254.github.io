@@ -2,7 +2,7 @@
 title: Login
 ---
 
-<script src="https://accounts.google.com/gsi/client" async></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script type="application/javascript">
 window.onload = function () {
   google.accounts.id.initialize({
