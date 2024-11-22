@@ -7,12 +7,8 @@ title: Login
 window.onload = function () {
   google.accounts.id.initialize({
     client_id: '169826553548-c1o8b8sh7f25qlv1qt026kieucus8r72.apps.googleusercontent.com',
-    context: 'signin', callback: console.log,
+    context: 'use', use_fedcm_for_prompt: true, callback: console.log, 
   })
-  try {
-    google.accounts.id.prompt()
-  } catch {
-    console.log('Render button...')
-  }
+  google.accounts.id.prompt()
 }
 </script>

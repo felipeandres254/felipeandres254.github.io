@@ -1,5 +1,4 @@
 /* GLOBAL STYLESHEET */
-@import "{{ site.theme }}";
 
 * {
   font-family: sans-serif;
