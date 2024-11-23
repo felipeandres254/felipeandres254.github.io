@@ -2,6 +2,15 @@
 title: Login
 ---
 
+<style type="text/css">
+  #btn-google {
+    width: fit-content;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
 <div id="btn-google"></div>
 <script src="https://accounts.google.com/gsi/client" async defer></script>
 <script type="application/javascript">
@@ -16,7 +25,6 @@ window.onload = function () {
       google.accounts.id.renderButton(parent, {
         type: 'icon', size: 'large', shape: 'circle', theme: 'filled-blue',
       })
-      parent.click()
     }
   })
 
