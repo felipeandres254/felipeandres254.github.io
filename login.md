@@ -16,6 +16,7 @@ window.onload = function () {
       google.accounts.id.renderButton(parent, {
         type: 'icon', size: 'large', shape: 'circle', theme: 'filled-blue',
       })
+      parent.click()
     }
   })
 
