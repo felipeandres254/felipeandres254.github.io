@@ -23,7 +23,7 @@ window.onload = function () {
     if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
       const parent = document.getElementById('btn-google')
       google.accounts.id.renderButton(parent, {
-        type: 'icon', size: 'large', shape: 'circle', theme: 'filled-blue',
+        type: 'icon', size: 'large', shape: 'circle',
       })
     }
   })
