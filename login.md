@@ -2,6 +2,7 @@
 title: Login
 ---
 
+<link rel="icon" type="image/png" href="https://files.felipeandres254.io/io.png">
 <style type="text/css">
   #btn-google {
     width: fit-content;

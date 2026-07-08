@@ -2,6 +2,7 @@
 title: App
 ---
 
+<link rel="icon" type="image/png" href="https://files.felipeandres254.io/io.png">
 <div id="app"></div>
 <div id="overlay-loading">
   <img src="assets/images/loading.svg">
