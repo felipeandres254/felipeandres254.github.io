@@ -1,0 +1,149 @@
+:root {
+  --ui-bg: #09090b;
+  --ui-bg-elevated: #18181b;
+  --ui-text: #fafafa;
+  --ui-text-muted: #a1a1aa;
+  --ui-border-muted: #3f3f46;
+  --ui-primary: #0088ff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.labs-page {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  background: var(--ui-bg);
+  color: var(--ui-text);
+  padding: 64px 32px;
+}
+
+.page-header {
+  max-width: 960px;
+  margin: 0 auto 48px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  font-size: 1rem;
+  color: var(--ui-text-muted);
+}
+
+.labs-grid {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 648px) {
+  .labs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 952px) {
+  .labs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.lab-card {
+  display: flex;
+  flex-direction: row;
+  background: var(--ui-bg-elevated);
+  border: 1px solid var(--ui-border-muted);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.lab-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  border-color: var(--ui-primary);
+}
+
+@media (min-width: 648px) {
+  .lab-card {
+    flex-direction: column;
+  }
+
+  .lab-card:hover {
+    transform: scale(1.04);
+  }
+}
+
+.lab-screenshot {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--ui-bg);
+  overflow: hidden;
+}
+
+@media (max-width: 647px) {
+  .lab-screenshot {
+    width: 120px;
+    height: 90px;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+  }
+}
+
+.lab-screenshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.lab-info {
+  padding: 16px 20px 20px;
+}
+
+@media (max-width: 647px) {
+  .lab-info {
+    flex: 1;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.lab-info h2 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.lab-info p {
+  font-size: 0.85rem;
+  color: var(--ui-text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 647px) {
+  .labs-page {
+    padding: 32px 16px;
+  }
+
+  .page-header {
+    margin-bottom: 32px;
+  }
+}
