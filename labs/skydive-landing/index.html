@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Patterns — @felipeandres254</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/mapbox-gl@3.9.4/dist/mapbox-gl.css">
+  <link rel="stylesheet" href="css/main.css">
+  <meta name="mapbox-token" content="pk.eyJ1IjoiZmVsaXBlYW5kcmVzMjU0IiwiYSI6ImNrMzZhdHlqYjFmajEzbm1tZnYzdXRoeXAifQ.vaGg6bawwgTUSIapG7wAHg">
+</head>
+<body>
+  <div class="aerial-map">
+    <div id="map" class="map"></div>
+    <canvas id="wind-canvas" class="wind-overlay"></canvas>
+    <div class="hud">
+      <span class="hud-item" id="hud-status"></span>
+      <button class="hud-btn" id="hud-zoom" title="Zoom to landing pattern">&#x2922;</button>
+      <button class="hud-btn" id="hud-wind-toggle" title="Toggle wind particles">&#x2261;</button>
+      <button class="hud-btn hud-gear" id="hud-gear" title="Settings">&#9881;</button>
+    </div>
+    <!-- sidebar (desktop) -->
+    <div id="sidebar" class="sidebar"></div>
+    <!-- modal (mobile) -->
+    <div id="modal" class="modal-backdrop" style="display:none">
+      <div class="modal">
+        <div class="modal-tabs" id="modal-tabs"></div>
+        <div class="modal-body" id="modal-body"></div>
+        <div class="modal-footer">
+          <button class="footer-btn footer-close" id="modal-close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/mapbox-gl@3.9.4/dist/mapbox-gl.js"></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

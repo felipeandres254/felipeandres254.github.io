@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Skydive Ramblers Toogoolawah",
+    "location": [-27.07025125, 152.38314497],
+    "mainTarget": [-27.07025125, 152.38314497],
+    "studentTarget": [-27.06991982, 152.38104249],
+    "jumprun": 90,
+    "circles": [
+      { "color": "#ff3333", "radius": 1.0 },
+      { "color": "#ffcc00", "radius": 0.5 }
+    ]
+  }
+]
