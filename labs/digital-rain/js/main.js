@@ -1,9 +1,6 @@
 //
 import Canvas from './controllers/Canvas.js'
 
-function fadeOutLoading() {
-}
-
 document.addEventListener('DOMContentLoaded', () => {
   new Canvas()
 
