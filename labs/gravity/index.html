@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gravity — @felipeandres254</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <canvas id="gc"></canvas>
+
+  <div class="hud" id="hud-hint">
+    <span class="hud-item">Click+drag to add mass · Drag existing body to fling · Scroll to zoom</span>
+  </div>
+  <div class="hud" id="hud-main">
+    <span class="hud-item" id="hud-count">0 bodies · 0 clusters</span>
+    <button class="hud-btn hud-gear" id="hud-gear" title="Settings">&#9881;</button>
+  </div>
+
+  <div id="modal" class="modal-backdrop" style="display:none">
+    <div class="modal">
+      <div class="modal-tabs" id="modal-tabs"></div>
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-footer">
+        <button class="footer-btn" id="modal-reset">Reset</button>
+        <button class="footer-btn" id="modal-share">Share</button>
+        <button class="footer-btn footer-close" id="modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="tooltip" class="tooltip" style="display:none"></div>
+  <div id="toast" class="toast">URL copied to clipboard</div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
