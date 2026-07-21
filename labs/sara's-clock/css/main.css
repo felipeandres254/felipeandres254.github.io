@@ -1,5 +1,5 @@
 /* APPLICATION STYLESHEET */
-@import "./_bg.css";
+@import "./bg.css";
 
 html, body {
   width: 100vw;
