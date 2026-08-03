@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  font-family: "Ubuntu", sans-serif;
+  background: oklch(20.8% 0.042 265.755);
+  color: #fafafa;
+}
+#map {
+  position: fixed;
+  inset: 0;
+}
+.maplibregl-ctrl-attrib {
+  font-size: 10px !important;
+}
+.maplibregl-ctrl-attrib a {
+  color: #a1a1aa !important;
+}
+
+.hud {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 10;
+  background: rgba(9, 9, 11, 0.85);
+  border: 1px solid #3f3f46;
+  border-radius: 8px;
+  padding: 8px 14px;
+  backdrop-filter: blur(10px);
+  font-size: 12px;
+  font-family: ui-monospace, monospace;
+  white-space: nowrap;
+}
+.hud-top {
+  top: 16px;
+}
+.hud-bottom {
+  bottom: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hud-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hud-label {
+  color: #a1a1aa;
+  text-transform: lowercase;
+  letter-spacing: 0.04em;
+}
+.hud-range {
+  width: 140px;
+  accent-color: #0088ff;
+  cursor: pointer;
+}
+.hud-item {
+  color: #fafafa;
+  min-width: 24px;
+  text-align: center;
+}
+.hud-btn {
+  background: rgba(0, 136, 255, 0.14);
+  border: 1px solid #0088ff;
+  color: #0088ff;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.hud-btn:hover {
+  background: rgba(0, 136, 255, 0.28);
+}
+
+.info {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  background: rgba(9, 9, 11, 0.9);
+  border: 1px solid #3f3f46;
+  border-radius: 8px;
+  padding: 14px 16px;
+  backdrop-filter: blur(10px);
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  min-width: 260px;
+  max-width: 320px;
+}
+.info-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #a1a1aa;
+  font-size: 16px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+.info-close:hover {
+  color: #fafafa;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 4px 0;
+  border-bottom: 1px solid rgba(63, 63, 70, 0.5);
+}
+.info-row:last-of-type {
+  border-bottom: none;
+}
+.info-row b {
+  color: #0088ff;
+  font-weight: 600;
+  word-break: break-all;
+  text-align: right;
+}
+.info-id b {
+  color: #fafafa;
+}
+.info .hud-btn {
+  margin-top: 10px;
+  width: 100%;
+}
