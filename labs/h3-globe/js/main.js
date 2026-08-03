@@ -1,4 +1,4 @@
-const DEFAULTS = { res: 0, k: 1 }
+const DEFAULTS = { res: 2, k: 2 }
 const STYLE = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'
 const MAX_CELLS = 20000
 const CENTER = [0, 23.43594]
@@ -16,8 +16,8 @@ const HIDE_LAYERS = [
 ]
 
 let map = null
-let res = 0
-let k = 1
+let res = 2
+let k = 2
 let hoverCell = null
 let lastHoverPoint = null
 let pendingGridFlush = null
@@ -210,10 +210,23 @@ function showInfo(lat, lng, cell) {
   els.info.style.display = 'block'
 }
 
+function addRes0Layer() {
+  const features = h3.getRes0Cells().map((id) => gridFeature(id))
+  map.addSource('res0', {
+    type: 'geojson',
+    data: { type: 'FeatureCollection', features },
+  })
+  map.addLayer({
+    id: 'res0-line', type: 'line', source: 'res0',
+    paint: { 'line-color': '#000000', 'line-width': 1, 'line-opacity': 1 },
+  })
+}
+
 function addLayers() {
   for (const id of HIDE_LAYERS) {
     if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', 'none')
   }
+  addRes0Layer()
   map.addSource('grid', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } })
   map.addSource('hover', { type: 'geojson', data: { type: 'FeatureCollection', features: [] } })
   map.addLayer({
